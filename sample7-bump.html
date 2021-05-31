@@ -31,7 +31,7 @@
    // テクスチャー読み込み
    var textureLoader = new THREE.TextureLoader();  
   var texture = textureLoader.load("石垣.jpg");
-  var mat = new THREE.MeshToonMaterial();
+  var mat = new THREE.MeshMaterial();
   mat.map = texture;
   
   // バンプマップ読み込み
