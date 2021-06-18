@@ -34,7 +34,7 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(0, 0, 1000);
+        camera.position.set(0, 20, 400);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera,document.body);
@@ -58,11 +58,11 @@
       scene.add(axisHelper);
     
         // 平面を作成
-        var planeGeometry = new THREE.PlaneGeometry(5,5,5,5);
+        var planeGeometry = new THREE.PlaneGeometry(5,5,1,1);
         var textureLoader = new THREE.TextureLoader;
         var texture = textureLoader.load("IMG_3646.JPG");
         var mat = new THREE.PlaneGeometry();
-        var plane = new THREE.Mesh(planeGeometry,textureLoader);
+        var plane = new THREE.Mesh(planeGeometry,texture);
         plane.rotation.set( -Math.PI/2, 0, 0 );
         plane.position.set(0,-1,0);
           
@@ -83,6 +83,61 @@
         sprite0.scale.set(100,100,100);
         scene.add(sprite0);
 
+        //ろうそく1を作成
+        const cylinderMaterial01 = new THREE.MeshBasicMaterial(
+          {
+            map: texture
+          }
+        );
+        var cylinder01 = new THREE.Mesh(                                     
+        new THREE.CylinderGeometry(2,2,50,100,cylinderMaterial01),                         
+        new THREE.MeshPhongMaterial({                                      
+               color: 0xffffff
+      }));
+        cylinder01.position.set(98,25,98)
+        scene.add(cylinder01); 
+
+         //ろうそく2を作成
+         const cylinderMaterial02 = new THREE.MeshBasicMaterial(
+          {
+            map: texture
+          }
+        );
+        var cylinder02 = new THREE.Mesh(                                     
+        new THREE.CylinderGeometry(2,2,50,100,cylinderMaterial02),                         
+        new THREE.MeshPhongMaterial({                                      
+               color: 0xffffff
+      }));
+        cylinder02.position.set(-98,25,98)
+        scene.add(cylinder02); 
+
+         //ろうそく3を作成
+         const cylinderMaterial03 = new THREE.MeshBasicMaterial(
+          {
+            map: texture
+          }
+        );
+        var cylinder03 = new THREE.Mesh(                                     
+        new THREE.CylinderGeometry(2,2,50,100,cylinderMaterial03),                         
+        new THREE.MeshPhongMaterial({                                      
+               color: 0xffffff
+      }));
+        cylinder03.position.set(-98,25,-98)
+        scene.add(cylinder03); 
+
+         //ろうそく4を作成
+         const cylinderMaterial04 = new THREE.MeshBasicMaterial(
+          {
+            map: texture
+          }
+        );
+        var cylinder04 = new THREE.Mesh(                                     
+        new THREE.CylinderGeometry(2,2,50,100,cylinderMaterial04),                         
+        new THREE.MeshPhongMaterial({                                      
+               color: 0xffffff
+      }));
+        cylinder04.position.set(98,25,-98)
+        scene.add(cylinder04); 
         
         tick();
         // 毎フレーム時に実行されるループイベントです
