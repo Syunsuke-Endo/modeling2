@@ -21,12 +21,7 @@
         // 背景の色を設定
         renderer.setClearColor(000000);
           
-        //日本人形の読み込み
-            var textureLoader = new THREE.TextureLoader();
-            var texture = textureLoader.load("日本人形１.jpg");
-            var mat = new
-        THREE.MeshLambertMaterial({transparent:true});
-            mat.map = texture;
+        
         
         // シーンを作成
         const scene = new THREE.Scene();
@@ -60,9 +55,9 @@
         // 平面を作成
         var planeGeometry = new THREE.PlaneGeometry(5,5,1,1);
         var textureLoader = new THREE.TextureLoader;
-        var texture = textureLoader.load("IMG_3646.JPG");
+        var texture1 = textureLoader.load("IMG_3646.JPG");
         var mat = new THREE.PlaneGeometry();
-        var plane = new THREE.Mesh(planeGeometry,texture);
+        var plane = new THREE.Mesh(planeGeometry,texture1);
         plane.rotation.set( -Math.PI/2, 0, 0 );
         plane.position.set(0,-1,0);
           
@@ -71,10 +66,12 @@
         mat.bumpMap = bump;
         mat.bumpscale = 0.2;
 
+     
+
         // 日本人形をスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
-        var texture0 = textureLoader.load("日本人形１.jpg");
-        const material0 = new THREE.SpriteMaterial({ map: texture0,});
+        var texture = textureLoader.load("日本人形１.png");
+        const material0 = new THREE.SpriteMaterial({ map: texture,});
 
         const sprite0 = new THREE.Sprite(material0);
         sprite0.position.x = 0;
